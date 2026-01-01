@@ -18,9 +18,8 @@ Identify security vulnerabilities in the backend codebase using OWASP API Securi
 
 ## Reference Documents
 
-**For vulnerability analysis reported in bug bounty**: See [bug-bounty-workflow.md](references/bug-bounty-workflow.md)
-**For OWASP classification**: See [owasp-api-top-10.md](references/owasp-api-top-10.md)
-**For severity scoring**: See [severity-assessment.md](references/severity-assessment.md)
+**For OWASP classification**: See @references/owasp-api-top-10.md
+**For severity scoring**: See @references/severity-assessment.md
 
 ## Security Review
 
