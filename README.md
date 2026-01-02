@@ -14,6 +14,7 @@
 | **📋 rfc-generator** | Creates comprehensive RFC (Request for Comments) documents for new features. Guides the user create the document through interactive questioning. | Major features, architecture changes, team proposals |
 | **🔒 security-analysis** | Identifies security vulnerabilities in backend code and analyzes security reports. Use for PR security reviews, vulnerability assessments, or analyzing external bug bounty reports against the codebase. | Security audits, PR security checks, bug bounty triage |
 | **📐 specs-generator** | Creates comprehensive SPECS.md specification files for new features. Use when the user wants to create specs, specifications, feature documentation, or design documents. | Feature specs, implementation docs, design documentation |
+| **🧪 test-generator** | Generates unit and integration tests for modified/added code following existing project patterns. | New features, bug fixes, improving test coverage |
 
 ## ⚙️ How Skills Work
 
@@ -46,6 +47,7 @@ skills/
 
 - **Start simple**: Use `kiss-check` before architecting complex solutions
 - **Document early**: Invoke `architect` when designing new modules
+- **Test proactively**: `test-generator` automatically suggests tests for modified code
 - **Review thoroughly**: Run `code-reviewer` before merging
 - **Plan ahead**: Use `specs-generator` or `rfc-generator` for major features
 - **Stay secure**: Always run `security-analysis` on PRs
