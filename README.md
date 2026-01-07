@@ -1,6 +1,6 @@
 # my-claude-skills
 
-> A collection of useful Claude Code skills I use for work.
+> A collection of useful Claude Code skills and agents I use for work.
 
 
 ## 🧩 Skills Overview
