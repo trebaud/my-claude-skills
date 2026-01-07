@@ -7,22 +7,22 @@
 
 | Skill | Description | Use Cases |
 |-------|-------------|-----------|
-| [**🏗️ architect**](skills/architect/SKILL.md) | Generates Mermaid.js architecture diagrams when creating or refactoring modules. Keeps visual documentation in sync with code changes. | New modules, API design, system refactoring, documenting data flows |
-| [**🔍 code-reviewer**](skills/code-reviewer/SKILL.md) | Comprehensive code review combining quality, security, and maintainability checks. | PR reviews, feature completion, refactoring, bug fixes |
-| [**📝 create-pr**](skills/create-pr/SKILL.md) | Creates a pull request for the current branch with auto-generated concise title and description. | Ready to merge, finishing work, PR creation automation |
-| [**✨ kiss-check**](skills/kiss-check/SKILL.md) | Complexity check that forces justification for complex solutions. Before proposing Design Patterns or abstractions, must explain why a simpler approach won't work. | Preventing overengineering, design reviews, architecture decisions |
-| [**📋 rfc-generator**](skills/rfc-generator/SKILL.md) | Creates comprehensive RFC (Request for Comments) documents for new features. Guides the user create the document through interactive questioning. | Major features, architecture changes, team proposals |
-| [**🔒 security-analysis**](skills/security-analysis/SKILL.md) | Identifies security vulnerabilities in backend code and analyzes security reports. Use for PR security reviews, vulnerability assessments, or analyzing external bug bounty reports against the codebase. | Security audits, PR security checks, bug bounty triage |
-| [**📐 specs-generator**](skills/specs-generator/SKILL.md) | Creates comprehensive SPECS.md specification files for new features. Use when the user wants to create specs, specifications, feature documentation, or design documents. | Feature specs, implementation docs, design documentation |
-| [**🧪 test-generator**](skills/test-generator/SKILL.md) | Generates unit and integration tests for modified/added code following existing project patterns. | New features, bug fixes, improving test coverage |
+| [**🏗️ architect**](skills/architect/SKILL.md) | Generates Mermaid.js architecture diagrams for modules and refactors. Keeps visual docs in sync. | New modules, API design, refactoring, data flows |
+| [**🔍 code-reviewer**](skills/code-reviewer/SKILL.md) | Comprehensive code review covering quality, security, and maintainability. | PR reviews, feature completion, refactoring, bug fixes |
+| [**📝 create-pr**](skills/create-pr/SKILL.md) | Creates pull requests with auto-generated title and description. | Ready to merge, finishing work, PR automation |
+| [**✨ kiss-check**](skills/kiss-check/SKILL.md) | Forces justification for complex solutions. Must explain why simpler won't work. | Preventing overengineering, design reviews, architecture decisions |
+| [**📋 rfc-generator**](skills/rfc-generator/SKILL.md) | Creates RFC documents for new features through interactive questioning. | Major features, architecture changes, team proposals |
+| [**🔒 security-analysis**](skills/security-analysis/SKILL.md) | Identifies security vulnerabilities and analyzes security reports. | Security audits, PR checks, bug bounty triage |
+| [**📐 specs-generator**](skills/specs-generator/SKILL.md) | Creates comprehensive SPECS.md files for new features and design docs. | Feature specs, implementation docs, design documentation |
+| [**🧪 test-generator**](skills/test-generator/SKILL.md) | Generates unit and integration tests following existing patterns. | New features, bug fixes, improving test coverage |
 
 
 ## 🤖 Agents Overview
 
 | Agent | Description | Use Cases |
 |-------|-------------|-----------|
-| [**🧪 test-runner**](agents/test-runner.md) | Specialized test execution agent. Runs specified tests and provides concise failure analysis without attempting fixes. | Running tests, analyzing test failures, debugging test suites |
-| [**📊 kiss-enforcer**](agents/kiss-enforcer.md) | Complexity analysis specialist who enforces simplicity. Identifies overengineering and ensures complexity is only introduced when genuinely necessary. | Code reviews, architecture decisions, preventing overengineering |
+| [**🧪 test-runner**](agents/test-runner.md) | Runs tests and provides failure analysis without attempting fixes. | Running tests, analyzing test failures, debugging test suites |
+| [**📊 kiss-enforcer**](agents/kiss-enforcer.md) | Enforces simplicity using the kiss-check skill. Identifies overengineering and ensures complexity is only necessary. | Code reviews, architecture decisions, preventing overengineering |
 
 
 
