@@ -31,32 +31,12 @@
 Skills and agents seamlessly integrate into your software development lifecycle, automating routine tasks and ensuring quality at every stage. Here's how they collaborate to supercharge your workflow:
 
 ```mermaid
-flowchart TD
-    A[Planning] --> B[Design]
-    B --> C[Development]
-    C --> D[Testing]
-    D --> E[Review & Deploy]
-    E --> F[Maintenance]
-
-    A --> A1[specs-generator<br/>Create detailed specs]
-    A --> A2[rfc-generator<br/>Draft RFCs for major changes]
-
-    B --> B1[architect<br/>Generate architecture diagrams]
-    B --> B2[kiss-check<br/>Validate design simplicity]
-
-    C --> C1[architect<br/>Refine implementation diagrams]
-    C --> C2[kiss-check<br/>Prevent overengineering]
-
-    D --> D1[test-generator<br/>Generate comprehensive tests]
-    D --> D2[test-runner<br/>Execute & analyze test failures]
-
-    E --> E1[code-reviewer<br/>Comprehensive code quality checks]
-    E --> E2[kiss-enforcer<br/>Enforce simplicity post-changes]
-    E --> E3[security-analysis<br/>Identify vulnerabilities]
-    E --> E4[create-pr<br/>Auto-generate PRs]
-
-    F --> F1[security-analysis<br/>Ongoing security audits]
-    F --> F2[code-reviewer<br/>Maintenance reviews]
+flowchart LR
+    A[Planning<br/>specs-generator, rfc-generator] --> B[Design<br/>architect, kiss-check]
+    B --> C[Development<br/>kiss-check]
+    C --> D[Testing<br/>test-generator, test-runner]
+    D --> E[Review & Deploy<br/>code-reviewer, security-analysis, create-pr]
+    E --> F[Maintenance<br/>security-analysis, code-reviewer]
 ```
 
 - **Planning**: Use `specs-generator` for new features to avoid scope creep.
