@@ -26,13 +26,6 @@
 | [**📊 kiss-enforcer**](agents/kiss-enforcer.md) | Enforces simplicity using the kiss-check skill. Identifies overengineering and ensures complexity is only necessary. | Code reviews, architecture decisions, preventing overengineering |
 
 
-## ⚡ Commands Overview
-
-| Command | Description | Use Cases |
-|---------|-------------|-----------|
-| [**🚀 one-shot**](.claude/commands/one-shot.md) | Autonomously deliver a complete feature from idea to PR. Executes all SDLC stages with auto-fixes. | New features, end-to-end automation, rapid prototyping |
-
-
 
 ## 🚀 Skills & Agents in the SDLC
 
@@ -60,4 +53,14 @@ flowchart LR
 - **Testing**: Pair `test-generator` with `test-runner` for automated testing workflows.
 - **Shipping**: Deploy with `code-reviewer` and `security-analysis` to catch issues before production.
 - **Maintaining**: Schedule regular `security-analysis` runs to stay ahead of threats.
-- **One-Shot**: Use `/one-shot [feature description]` to automate the entire SDLC from idea to PR in a single command.
+
+
+---
+
+## 🎢 One-Shot Command
+
+| Command | Description | Use Cases |
+|---------|-------------|-----------|
+| [**one-shot**](.claude/commands/one-shot.md) | Autonomously deliver a complete feature from idea to PR. Executes all SDLC stages with auto-fixes. | New features, end-to-end automation, rapid prototyping |
+
+> 💡 `/one-shot [feature description]` automates the entire SDLC from idea to PR. It's fast, powerful, and might be plotting world domination while you're not looking. Just kidding (probably). Use responsibly! 🤖
