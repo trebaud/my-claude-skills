@@ -15,6 +15,7 @@
 | [**🔒 security-analysis**](skills/security-analysis/SKILL.md) | Identifies security vulnerabilities and analyzes security reports. | Security audits, PR checks, bug bounty triage |
 | [**📐 specs-generator**](skills/specs-generator/SKILL.md) | Creates comprehensive SPECS.md files for new features and design docs. | Feature specs, implementation docs, design documentation |
 | [**🧪 test-generator**](skills/test-generator/SKILL.md) | Generates unit and integration tests following existing patterns. | New features, bug fixes, improving test coverage |
+| [**🔧 refactoring-assistant**](skills/refactoring-assistant/SKILL.md) | Performs safe refactoring with automated test verification. | KISS violations, overengineered code, duplicate code |
 
 
 ## 🤖 Agents Overview
@@ -25,6 +26,13 @@
 | [**📊 kiss-enforcer**](agents/kiss-enforcer.md) | Enforces simplicity using the kiss-check skill. Identifies overengineering and ensures complexity is only necessary. | Code reviews, architecture decisions, preventing overengineering |
 
 
+## ⚡ Commands Overview
+
+| Command | Description | Use Cases |
+|---------|-------------|-----------|
+| [**🚀 one-shot**](.claude/commands/one-shot.md) | Autonomously deliver a complete feature from idea to PR. Executes all SDLC stages with auto-fixes. | New features, end-to-end automation, rapid prototyping |
+
+
 
 ## 🚀 Skills & Agents in the SDLC
 
@@ -33,15 +41,23 @@ Skills and agents seamlessly integrate into your software development lifecycle,
 ```mermaid
 flowchart LR
     A[Planning<br/>specs-generator, rfc-generator] --> B[Design<br/>architect, kiss-check]
-    B --> C[Development<br/>kiss-check]
+    B --> C[Development<br/>kiss-check, refactoring-assistant]
     C --> D[Testing<br/>test-generator, test-runner]
     D --> E[Review & Deploy<br/>code-reviewer, security-analysis, create-pr]
     E --> F[Maintenance<br/>security-analysis, code-reviewer]
+    
+    G[/one-shot command/] -.-> A
+    G -.-> B
+    G -.-> C
+    G -.-> D
+    G -.-> E
 ```
 
 - **Planning**: Use `specs-generator` for new features to avoid scope creep.
 - **Design**: Run `architect` early to visualize your system before coding.
 - **Building**: Let `kiss-check` challenge your complex ideas—simpler is often better.
+- **Refactoring**: Use `refactoring-assistant` to simplify overengineered code safely.
 - **Testing**: Pair `test-generator` with `test-runner` for automated testing workflows.
 - **Shipping**: Deploy with `code-reviewer` and `security-analysis` to catch issues before production.
 - **Maintaining**: Schedule regular `security-analysis` runs to stay ahead of threats.
+- **One-Shot**: Use `/one-shot [feature description]` to automate the entire SDLC from idea to PR in a single command.
