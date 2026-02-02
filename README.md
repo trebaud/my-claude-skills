@@ -16,6 +16,8 @@
 | [**📐 specs-generator**](skills/specs-generator/SKILL.md) | Creates comprehensive SPECS.md files for new features and design docs. | Feature specs, implementation docs, design documentation |
 | [**🧪 test-generator**](skills/test-generator/SKILL.md) | Generates unit and integration tests following existing patterns. | New features, bug fixes, improving test coverage |
 | [**🔧 refactoring-assistant**](skills/refactoring-assistant/SKILL.md) | Performs safe refactoring with automated test verification. | KISS violations, overengineered code, duplicate code |
+| [**🐛 debug**](skills/debug/SKILL.md) | Test-first bug debugging system. Creates reproducing tests, then uses subagents to implement fixes proven by passing tests. | Bug reports, unexpected behavior, regression issues |
+| [**🎯 interview**](skills/interview/SKILL.md) | Interviews about implementation plans by asking non-obvious technical questions about decisions, tradeoffs, and constraints. | Plan validation, requirement clarification, design reviews |
 
 
 ## 🤖 Agents Overview
@@ -33,11 +35,11 @@ Skills and agents seamlessly integrate into your software development lifecycle,
 
 ```mermaid
 flowchart LR
-    A[Planning<br/>specs-generator, rfc-generator] --> B[Design<br/>architect, kiss-check]
+    A[Planning<br/>specs-generator, rfc-generator, interview] --> B[Design<br/>architect, kiss-check, interview]
     B --> C[Development<br/>kiss-check, refactoring-assistant]
-    C --> D[Testing<br/>test-generator, test-runner]
+    C --> D[Testing<br/>test-generator, test-runner, debug]
     D --> E[Review & Deploy<br/>code-reviewer, security-analysis, create-pr]
-    E --> F[Maintenance<br/>security-analysis, code-reviewer]
+    E --> F[Maintenance<br/>security-analysis, code-reviewer, debug]
     
     G[/one-shot command/] -.-> A
     G -.-> B
@@ -46,13 +48,13 @@ flowchart LR
     G -.-> E
 ```
 
-- **Planning**: Use `specs-generator` for new features to avoid scope creep.
-- **Design**: Run `architect` early to visualize your system before coding.
+- **Planning**: Use `specs-generator` for new features and `interview` to validate implementation plans.
+- **Design**: Run `architect` early to visualize your system, use `interview` to clarify requirements, and `kiss-check` to challenge complexity.
 - **Building**: Let `kiss-check` challenge your complex ideas—simpler is often better.
 - **Refactoring**: Use `refactoring-assistant` to simplify overengineered code safely.
-- **Testing**: Pair `test-generator` with `test-runner` for automated testing workflows.
+- **Testing**: Pair `test-generator` with `test-runner` and `debug` for comprehensive testing workflows.
 - **Shipping**: Deploy with `code-reviewer` and `security-analysis` to catch issues before production.
-- **Maintaining**: Schedule regular `security-analysis` runs to stay ahead of threats.
+- **Maintaining**: Schedule regular `security-analysis` runs and use `debug` for systematic bug resolution.
 
 
 ---

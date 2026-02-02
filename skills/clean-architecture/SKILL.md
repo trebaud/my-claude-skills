@@ -1,6 +1,6 @@
 ---
-name: software-architecture
-description: Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development. 
+name: clean-architecture
+description: Guide for quality focused software architecture using Clean Architecture principles. Use when writing code, designing architecture, or analyzing code to ensure business-focused design and proper separation of concerns.
 ---
 
 # Software Architecture Development Skill

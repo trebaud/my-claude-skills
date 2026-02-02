@@ -1,7 +1,6 @@
 ---
-description: Interview me about the plan
-argument-hint: [plan]
-model: claude-opus-4-5
+name: interview
+description: Interviews the user about implementation plans by asking non-obvious questions about technical details, UI/UX decisions, concerns, tradeoffs, edge cases, and constraints. Goes deep on one question at a time until all ambiguities are resolved.
 ---
 
 Read plan file $1. Interview me using AskUserQuestion about:
