@@ -5,7 +5,7 @@ description: Guide for quality focused software architecture using Clean Archite
 
 # Software Architecture Development Skill
 
-This skill provides guidence for quality focused software development and architecture. It is based on Clean Architecture and business-focused design principles.
+This skill provides guidance for quality focused software development and architecture. It is based on Clean Architecture and business-focused design principles.
 
 ## Code Style Rules
 
