@@ -1,7 +1,7 @@
 ---
-name: architect
-description: Generates Mermaid.js architecture diagrams when creating or refactoring modules. Keeps visual documentation in sync with code changes.
-tools: Read, Grep, Glob, Write
+name: arch-diagram
+description: Generates Mermaid.js architecture diagrams for modules and services. Use when creating a new module or service, refactoring complex data flows, adding integrations, or modifying API endpoints. Keeps visual documentation in sync with code changes.
+allowed-tools: Read, Grep, Glob, Write
 ---
 
 # The Architect

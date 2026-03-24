@@ -1,6 +1,7 @@
 ---
 name: rfc-generator
-description: Creates comprehensive RFC (Request for Comments) documents for new features. Guides the user create the document through interactive questioning.
+description: Creates comprehensive RFC (Request for Comments) documents for new features. Use when the user wants to write an RFC, propose a new feature for team review, or document a technical decision. Guides the user through interactive questioning to flesh out the document.
+allowed-tools: Read, Grep, Glob, Write, AskUserQuestion
 ---
 
 # RFC Document Generator

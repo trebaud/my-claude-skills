@@ -1,7 +1,7 @@
 ---
 name: security-analysis
-description: Identifies security vulnerabilities in backend code and analyzes security reports. Use for PR security reviews, vulnerability assessments, or analyzing external bug bounty reports against the codebase.
-tools: Read, Grep, Glob, WebFetch
+description: Identifies security vulnerabilities in backend code using OWASP API Security Top 10. Use when reviewing PRs for security, performing vulnerability assessments, analyzing bug bounty reports against the codebase, or when the code-reviewer skill needs a security check.
+allowed-tools: Read, Grep, Glob, WebFetch
 ---
 
 # Security Analysis

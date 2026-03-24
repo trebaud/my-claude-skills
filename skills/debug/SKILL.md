@@ -1,7 +1,7 @@
 ---
 name: debug
-description: Test-first bug debugging system. When users report bugs, creates reproducing tests first, then uses subagents to implement fixes proven by passing tests. Never attempts fixes without test coverage.
-tools: Read, Grep, Glob, Bash, Task, Write, Edit
+description: Test-first bug debugging system. Use when a user reports a bug, something doesn't work, or a regression is found. Creates reproducing tests first, then uses subagents to implement fixes proven by passing tests. Never attempts fixes without test coverage.
+allowed-tools: Read, Grep, Glob, Bash, Agent, Write, Edit
 ---
 
 # Debug - Test-First Bug Resolution
@@ -73,9 +73,9 @@ describe('[Bug Name]', () => {
 
 **Step 4: Verify Test Fails**
 
-Run the new test to confirm:
+Run the new test to confirm (detect the project's test runner from lockfiles/config):
 ```bash
-npm test -- --testNamePattern="should reproduce the reported bug"
+[test-runner] -- --testNamePattern="should reproduce the reported bug"
 ```
 
 Expected: Test fails with the exact bug behavior reported
@@ -132,10 +132,7 @@ Return: Confirmation that all tests pass and no regressions introduced.
 
 **Step 8: Complete Test Suite**
 
-Run all tests to ensure no regressions:
-```bash
-npm test
-```
+Run all tests to ensure no regressions (detect the project's test runner from lockfiles/config).
 
 **Step 9: Manual Verification (Optional)**
 
@@ -181,52 +178,7 @@ If the bug had a user interface component:
 
 ## Subagent Templates
 
-### Analysis Subagent Prompt Template
-
-```
-You are a bug analysis specialist. 
-
-A test is failing with this behavior:
-[Insert failing test code and error]
-
-Your task:
-1. Analyze why this test fails
-2. Trace the execution path that leads to the failure
-3. Identify the exact location where behavior diverges from expected
-4. Determine the minimal change needed
-
-Focus ONLY on root cause analysis, not implementation.
-
-Return format:
-- Root Cause: [What's actually wrong]
-- Location: file:line
-- Fix Strategy: [How to fix it, but don't implement]
-```
-
-### Fix Implementation Subagent Prompt Template
-
-```
-You are a bug fix specialist.
-
-Analysis indicates this issue:
-[Insert analysis results]
-
-Your task:
-1. Implement the minimal fix at the identified location
-2. Make the failing test pass
-3. Follow existing code patterns exactly
-4. Don't add complexity or new abstractions
-
-Constraints:
-- Only change what's absolutely necessary
-- Run tests after each edit
-- If tests fail, rollback immediately
-
-Return format:
-- Changes Made: [Specific code changes]
-- Test Status: [Pass/Fail]
-- Any Issues: [Problems encountered]
-```
+See @references/subagent-templates.md for analysis and fix implementation subagent prompt templates.
 
 ## Best Practices
 
@@ -241,39 +193,6 @@ Return format:
 - **No overengineering**: Don't introduce patterns for one-off fixes
 - **Consistent style**: Match existing code exactly
 - **Immediate testing**: Run tests after each change
-
-### Common Patterns
-
-#### Logic Bug Fix
-```javascript
-// Before
-if (condition) {
-  doSomething();
-} else {
-  doSomethingElse(); // Bug: wrong logic here
-}
-
-// After
-if (condition) {
-  doSomething();
-} else if (otherCondition) {
-  doSomethingElse(); // Fixed: correct condition
-}
-```
-
-#### Edge Case Bug Fix
-```javascript
-// Before
-function processValue(value) {
-  return value * 2; // Bug: doesn't handle null/undefined
-}
-
-// After  
-function processValue(value) {
-  if (value == null) return 0; // Fixed: handle edge case
-  return value * 2;
-}
-```
 
 ## Error Handling
 

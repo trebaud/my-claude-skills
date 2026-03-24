@@ -1,6 +1,8 @@
 ---
 name: interview
-description: Interviews the user about implementation plans by asking non-obvious questions about technical details, UI/UX decisions, concerns, tradeoffs, edge cases, and constraints. Goes deep on one question at a time until all ambiguities are resolved.
+description: Interviews the user about implementation plans by asking non-obvious questions about technical details, UI/UX decisions, concerns, tradeoffs, edge cases, and constraints. Use when the user wants to flesh out a plan, validate an approach, or think through implementation details before coding. Goes deep on one question at a time until all ambiguities are resolved.
+argument-hint: [plan-file-path]
+allowed-tools: Read, AskUserQuestion
 ---
 
 Read plan file $1. Interview me using AskUserQuestion about:

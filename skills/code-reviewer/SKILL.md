@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
-description: Comprehensive code review combining quality, security, and maintainability checks.
-tools: Read, Grep, Glob, Bash, Skill
+description: Comprehensive code review combining quality, security, and maintainability checks. Use when reviewing code before a pull request, after completing a feature, after fixing bugs, or when the user asks for a code review.
+allowed-tools: Read, Grep, Glob, Bash, Skill
 ---
 
 # Code Reviewer
@@ -26,11 +26,7 @@ Invoke this skill:
 
 ### Step 2: Security Analysis
 
-**CRITICAL**: Invoke the security-analysis skill to check for vulnerabilities.
-
-```
-Skill: security-analysis
-```
+**CRITICAL**: Use the Skill tool to invoke the `security-analysis` skill to check for vulnerabilities.
 
 ### Step 3: Code Quality Review
 
@@ -67,12 +63,12 @@ Check for these quality issues:
    - Happy path
    - Error cases
    - Edge cases
-3. Run tests if available: `pnpm test [file]`
+3. Run tests if available (detect the project's test runner from lockfiles/config)
 
 ### Step 5: Dependencies Check
 
 If new dependencies were added:
-- Check for known vulnerabilities: `pnpm audit`
+- Check for known vulnerabilities using the project's package manager audit command
 - Verify the package is actively maintained
 - Check bundle size impact
 

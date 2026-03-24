@@ -1,7 +1,7 @@
 ---
 name: test-generator
-description: Generates unit and integration tests for modified/added code following existing project patterns.
-tools: Read, Grep, Glob, Bash
+description: Generates unit and integration tests for modified or added code following existing project patterns. Use when new files are added without tests, modified files lack test coverage, or when the user asks to generate or write tests for a file.
+allowed-tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
 # Test Generator

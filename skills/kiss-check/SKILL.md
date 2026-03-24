@@ -1,7 +1,8 @@
 ---
 name: kiss-check
-description: Complexity check that forces justification for complex solutions. Before proposing Design Patterns or abstractions, must explain why a simpler approach won't work.
-tools: Read, Grep, Glob, AskUserQuestion
+description: Complexity check that forces justification for complex solutions. Use when about to propose design patterns, abstractions, or complex architectures, or when reviewing code for overengineering. Before proposing patterns or abstractions, must explain why a simpler approach won't work.
+user-invocable: false
+allowed-tools: Read, Grep, Glob, AskUserQuestion
 ---
 
 # The Refuse-to-Overengineer
@@ -167,6 +168,11 @@ async function processStripePayment(amount: number): Promise<void> {
 // Adding a 5th, pattern is established
 class PayPalProcessor implements PaymentProcessor { ... }
 ```
+
+## Related Skills
+
+- **clean-architecture**: Complements this skill with Clean Architecture principles, naming conventions, and library-first approach. kiss-check focuses on *when* complexity is warranted; clean-architecture focuses on *how* to structure it properly.
+- **refactor**: Use when kiss-check identifies existing overengineered code that should be simplified.
 
 ## Remember
 

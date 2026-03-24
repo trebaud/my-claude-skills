@@ -1,12 +1,12 @@
 ---
-name: refactoring-assistant
-description: Performs safe refactoring with automated test verification
-tools: Read, Grep, Glob, Bash, Write, Edit
+name: refactor
+description: Performs safe refactoring with automated test verification. Use when simplifying overengineered code, removing unnecessary abstractions, eliminating duplication, or cleaning up hard-to-understand code. Makes incremental changes with test runs after each step.
+allowed-tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
-# Refactoring Assistant
+# Refactor
 
-Simplify code while maintaining functionality and test coverage.
+Simplify code while maintaining functionality and test coverage. Use the `kiss-check` skill's complexity justification framework to evaluate whether existing patterns are warranted before refactoring.
 
 ## When to Use
 
@@ -50,27 +50,7 @@ Explain:
 
 ## Strategies
 
-### Replace Pattern with Direct Code
-
-**Before**:
-```typescript
-interface PaymentProcessor {
-  process(amount: number): Promise<void>;
-}
-class StripeProcessor implements PaymentProcessor {
-  async process(amount: number): Promise<void> { }
-}
-class PaymentProcessorFactory {
-  create(): PaymentProcessor { return new StripeProcessor(); }
-}
-```
-
-**After**:
-```typescript
-async function processStripePayment(amount: number): Promise<void> { }
-```
-
-### Remove Unnecessary Abstractions
+### Flatten Inheritance to Functions
 
 **Before**:
 ```typescript
@@ -90,6 +70,24 @@ async function getUser(id: string): Promise<User> {
   const response = await fetch(`/api/users/${id}`);
   return response.json();
 }
+```
+
+### Inline Unnecessary Wrappers
+
+**Before**:
+```typescript
+class ConfigManager {
+  private config: Record<string, string> = {};
+  get(key: string): string { return this.config[key]; }
+  set(key: string, value: string): void { this.config[key] = value; }
+}
+// Used in exactly one place
+const configManager = new ConfigManager();
+```
+
+**After**:
+```typescript
+const config: Record<string, string> = {};
 ```
 
 ## Safety Rules

@@ -1,6 +1,7 @@
 ---
 name: clean-architecture
-description: Guide for quality focused software architecture using Clean Architecture principles. Use when writing code, designing architecture, or analyzing code to ensure business-focused design and proper separation of concerns.
+description: Guide for quality-focused software architecture using Clean Architecture principles. Use when writing code, designing architecture, or analyzing code to ensure business-focused design and proper separation of concerns.
+user-invocable: false
 ---
 
 # Software Architecture Development Skill
@@ -73,4 +74,7 @@ This skill provides guidance for quality focused software development and archit
 - Avoid deep nesting (max 3 levels)
 - Keep functions focused and under 50 lines when possible
 - Keep files focused and under 200 lines of code when possible
-```
+
+## Related Skills
+
+- **kiss-check**: Complements this skill with a complexity justification protocol. clean-architecture focuses on *how* to structure code properly; kiss-check focuses on *whether* complexity is warranted in the first place.

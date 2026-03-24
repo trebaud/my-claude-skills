@@ -1,6 +1,7 @@
 ---
 name: specs-generator
 description: Creates comprehensive SPECS.md specification files for new features. Use when the user wants to create specs, specifications, feature documentation, or design documents. Helps flesh out scope, implementation details, and design choices through interactive questioning.
+allowed-tools: Read, Grep, Glob, Write, AskUserQuestion
 ---
 
 # Feature Specification Generator
