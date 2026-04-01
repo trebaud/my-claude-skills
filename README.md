@@ -28,6 +28,7 @@ ln -s ~/.agents/skills ~/.opencode/skills
 | [interview](skills/interview/SKILL.md) | Asks non-obvious technical questions about implementation plans, tradeoffs, and constraints. |
 | [kiss-check](skills/kiss-check/SKILL.md) | Forces justification for complex solutions. Must explain why simpler won't work. |
 | [macos-security-audit](skills/macos-security-audit/SKILL.md) | Runs a comprehensive security audit on macOS: processes, network, persistence, hardening, and more. |
+| [prd](skills/prd/SKILL.md) | Generates Product Requirements Documents with clarifying questions, user stories, and acceptance criteria. |
 | [refactor](skills/refactor/SKILL.md) | Safe refactoring with automated test verification after each step. |
 | [rfc-generator](skills/rfc-generator/SKILL.md) | Creates RFC documents for new features through interactive questioning. |
 | [security-analysis](skills/security-analysis/SKILL.md) | Identifies security vulnerabilities and analyzes security reports. |
@@ -47,16 +48,18 @@ ln -s ~/.agents/skills ~/.opencode/skills
 
 ```mermaid
 flowchart LR
-    A[Planning<br/>specs-generator, rfc-generator, interview] --> B[Design<br/>arch-diagram, kiss-check, interview]
-    B --> C[Development<br/>kiss-check, refactor, clean-architecture]
-    C --> D[Testing<br/>test-generator, debug]
-    D --> E[Review & Deploy<br/>code-reviewer, security-analysis, create-pr]
-    E --> F[Maintenance<br/>security-analysis, source-code-auditor, macos-security-audit, debug]
+    Plan["Plan<br/>prd · specs-generator<br/>rfc-generator · interview"]
+    Design["Design<br/>arch-diagram · kiss-check"]
+    Dev["Develop<br/>clean-architecture · refactor"]
+    Test["Test<br/>test-generator · debug"]
+    Review["Review & Ship<br/>code-reviewer · security-analysis<br/>semgrep-audit · create-pr"]
+
+    Plan --> Design --> Dev --> Test --> Review
+    Review -.->|iterate| Plan
 ```
 
-- **Planning** -- `specs-generator` for feature specs, `interview` to validate plans
+- **Plan** -- `prd` for product requirements, `specs-generator` for feature specs, `rfc-generator` for proposals, `interview` to validate plans
 - **Design** -- `arch-diagram` to visualize the system, `kiss-check` to challenge complexity
-- **Development** -- `refactor` for safe simplification, `clean-architecture` for structural guidance
-- **Testing** -- `test-generator` + `debug` for comprehensive test coverage
-- **Review** -- `code-reviewer`, `security-analysis`, and `semgrep-audit` before merging
-- **Maintenance** -- `semgrep-audit` for deep code audits, `macos-security-audit` for system hardening, `debug` for bug resolution
+- **Develop** -- `clean-architecture` for structural guidance, `refactor` for safe simplification
+- **Test** -- `test-generator` for coverage, `debug` for test-first bug fixing
+- **Review & Ship** -- `code-reviewer` + `security-analysis` + `semgrep-audit` before merging, `create-pr` to ship
