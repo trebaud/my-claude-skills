@@ -129,7 +129,13 @@ Output a ranked markdown table, most urgent first. One row per finding:
 - Affects: the specific stack item it hits (e.g. "npm: express@<4.20.0", "AWS IAM", "MongoDB driver").
 - Action: concrete next step in ≤12 words (e.g. "Pin express ≥4.20.0 in backend/package.json", "Rotate AWS access keys issued before YYYY-MM-DD", "Audit `npm ls <pkg>` across repos").
 
-Follow the table with a single "Suggested next commands" section listing exact commands the user can run (e.g. `npm audit`, `npm ls <pkg>`, `grep -r <indicator>`). No prose padding.
+After the table, add a short block for each finding (same order as the table):
+
+```
+**CVE / Name** — One or two sentences: what the vulnerability is, why it matters to our stack, and what the attacker can do if it's exploited. No padding.
+```
+
+Follow that with a single "Suggested next commands" section listing exact commands the user can run (e.g. `npm audit`, `npm ls <pkg>`, `grep -r <indicator>`). No prose padding.
 
 If the report is empty, say exactly: `No high-signal threats in window. Next scan recommended in 12h.`
 
