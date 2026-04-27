@@ -168,15 +168,43 @@ Pull candidates from items dropped in step 3c / 4 for score reasons only. Do not
 
 **5e. Empty report.** If nothing survives step 4 and nothing qualifies for 5d, say exactly: `No high-signal threats in window. Next scan recommended in 12h.` with no table or detail blocks. If the main report is empty but 5d has items, keep 5d and prepend a single line: `No items cleared the high-signal bar, but these may be worth a glance:`.
 
-### 6. Save report file
+### 6. Save report files
 
-After outputting the report to the user, write it to a file using the `Write` tool.
+After outputting the report to the user, write both a markdown and an HTML file using the `Write` tool. Use `date -u +%Y-%m-%d_%H-%M-%S` to obtain the timestamp at write time. Write both files in parallel.
 
-- Path: `~/vuln-reports/YYYY-MM-DD_HH-MM-SS_vuln-scan.md` — timestamp format is `YYYY-MM-DD_HH-MM-SS` (24h, UTC, zero-padded). Example: `2026-04-20_14-07-33_vuln-scan.md`. Use `date -u +%Y-%m-%d_%H-%M-%S` to obtain the value at write time.
+**6a. Markdown file** — `~/vuln-reports/YYYY-MM-DD_HH-MM-SS_vuln-scan.md`
+
 - Content: the report as shown to the user (ranked table, source links, suggested commands)
 - Every CVE / incident name in the table must be a markdown hyperlink to its primary source. Do not omit links.
 - Add a header line: `# Vuln Scan — YYYY-MM-DD HH:MM:SS UTC` (same timestamp, spaces/colons for readability) and a `**Window:** Xd | **Stack:** Node/TS/MongoDB/npm/AWS/crypto` metadata line before the table. Example header: `# Vuln Scan — 2026-04-20 14:07:33 UTC`.
-- Confirm to the user with a single line: `Report saved to ~/vuln-reports/<filename>`.
+
+**6b. HTML file** — `~/vuln-reports/YYYY-MM-DD_HH-MM-SS_vuln-scan.html`
+
+Write a single self-contained HTML file with:
+- Inline CSS only (no external dependencies)
+- Dark background (`#0d1117`), GitHub-like aesthetic
+- Clean sans-serif font (system-ui stack)
+- A sticky header with scan title, timestamp, and window/stack metadata
+- The ranked summary table rendered as an HTML `<table>` with hover rows and severity badges
+- Severity badge colors:
+  - Critical: red (`#da3633` bg, `#ffc1be` text)
+  - High: orange (`#9e4a01` bg, `#ffa657` text)
+- Detail blocks as styled `<article>` elements, each separated visually, containing:
+  - `<h3>` heading with CVE/name linking to primary source
+  - Labeled paragraphs (**What it is**, **Why it matters to us**, **Attacker capability**, **Action**) each in its own `<p>`
+  - Source links as `<a>` tags
+- Suggested commands in a styled `<pre><code>` block with a dark inset background
+- "Also worth a glance" as a final `<section>` with a muted header and list items, if any findings qualify; omit entirely if none
+- Smooth hover transitions on table rows and article cards
+- Responsive layout (max-width 960px, centered)
+- The HTML file must be fully self-contained (no external CSS/JS/fonts)
+
+After writing the HTML file, open it:
+```bash
+open ~/vuln-reports/YYYY-MM-DD_HH-MM-SS_vuln-scan.html
+```
+
+Confirm to the user with a single line listing both paths: `Reports saved to ~/vuln-reports/<filename>.md and <filename>.html`.
 
 ## Rules
 
